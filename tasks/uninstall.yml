@@ -1,7 +1,7 @@
 ---
 
 - name: Enable firewall services
-  service:
+  ansible.builtin.service:
     name: "{{ item }}"
     state: started
     enabled: yes
@@ -9,26 +9,26 @@
   ignore_errors: yes
 
 - name: disable iptables-docker
-  service:
+  ansible.builtin.service:
     name: iptables-docker
     enabled: no
     state: stopped
 
 - name: remove iptables-docker.sh
-  file:
+  ansible.builtin.file:
     path: /usr/local/sbin/iptables-docker.sh
     state: absent
 
 - name: remove awk.firewall
-  file:
+  ansible.builtin.file:
     path: /usr/local/sbin/awk.firewall
     state: absent
 
 - name: remove iptables-docker.service
-  file:
+  ansible.builtin.file:
     path: /etc/systemd/system/iptables-docker.service
     state: absent
 
 - name: reload systemd
-  systemd:
+  ansible.builtin.systemd:
     daemon_reload: yes

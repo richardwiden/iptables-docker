@@ -19,7 +19,7 @@
     - reload iptables-docker
 
 - name: copy awk.firewall
-  copy:
+  ansible.builtin.copy:
     src: awk.firewall
     dest: /usr/local/sbin/awk.firewall
     owner: root
@@ -29,7 +29,7 @@
     - reload iptables-docker
 
 - name: copy iptables-docker.service
-  copy:
+  ansible.builtin.copy:
     src: iptables-docker.service
     dest: /etc/systemd/system/iptables-docker.service
     owner: root
@@ -37,11 +37,11 @@
     mode: 0600
 
 - name: reload systemd
-  systemd:
-    daemon_reload: yes
+  ansible.builtin.systemd:
+    daemon_reload: true
 
 - name: enable iptables-docker
-  service:
+  ansible.builtin.service:
     name: iptables-docker
-    enabled: yes
+    enabled: true
     state: started

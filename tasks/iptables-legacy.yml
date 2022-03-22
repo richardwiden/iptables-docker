@@ -3,7 +3,7 @@
   command: iptables --version
   register: iptables_version
   changed_when: false
-  ignore_errors: yes
+  ignore_errors: true
 
 - block:
     - name: Link iptables to /usr/sbin/iptables-legacy
@@ -17,7 +17,7 @@
         path: /usr/sbin/ip6tables-legacy
 
     - name: Reboot initiated by Ansible for iptables-legacy
-      reboot:
+      ansible.builtin.reboot:
         msg: "Reboot initiated by Ansible for iptables-legacy"
         connect_timeout: 5
         reboot_timeout: 300
