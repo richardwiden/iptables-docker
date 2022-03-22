@@ -8,10 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
+      - name: checkout-files
+        uses: Bhacaz/checkout-files@v1
+        with:
+          files: roles/iptables-docker
       - name: galaxy
         uses: robertdebock/galaxy-action@1.1.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
-          path: roles/iptables-docker
