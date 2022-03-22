@@ -3,4 +3,4 @@
   ansible.service:
     name: iptables-docker
     state: restarted
-    enabled: yes
+    enabled: true

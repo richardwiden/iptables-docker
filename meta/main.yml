@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name:  iptables_docker
+  role_name: iptables_docker
   author: richardwiden
   description: Not very tested - please do not use
   license: license (GPLv3)
@@ -9,8 +9,8 @@ galaxy_info:
     - name: Debian
       versions: all
   galaxy_tags:
-   - docker
-   - iptables
+    - docker
+    - iptables
 
 dependencies: []
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,

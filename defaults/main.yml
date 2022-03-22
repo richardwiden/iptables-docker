@@ -1,7 +1,7 @@
 ---
 docker_preserve: true
 swarm_enabled: false
-ebable_icmp_messages: yes
+ebable_icmp_messages: true
 swarm_cidr: 192.168.1.0/24
 ssh_allow_cidr: 0.0.0.0/0
 iptables_allow_rules: []
