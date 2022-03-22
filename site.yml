@@ -2,5 +2,5 @@
 - hosts: all
   remote_user: "ubuntu" # <- change this with your user
   become: yes
-  roles: 
+  roles:
      - role: roles/iptables-docker

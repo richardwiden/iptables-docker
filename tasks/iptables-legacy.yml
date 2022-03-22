@@ -1,19 +1,23 @@
 ---
 - name: check iptables version
-  shell: iptables --version
+  command: iptables --version
   register: iptables_version
+  changed_when: false
   ignore_errors: yes
 
-- block:  
-    - alternatives:
+- block:
+    - name: Link iptables to /usr/sbin/iptables-legacy
+      alternatives:
         name: iptables
         path: /usr/sbin/iptables-legacy
 
-    - alternatives:
+    - name: Link ip6tables to /usr/sbin/ip6tables-legacy
+      alternatives:
         name: ip6tables
         path: /usr/sbin/ip6tables-legacy
 
-    - reboot:
+    - name: Reboot initiated by Ansible for iptables-legacy
+      reboot:
         msg: "Reboot initiated by Ansible for iptables-legacy"
         connect_timeout: 5
         reboot_timeout: 300
