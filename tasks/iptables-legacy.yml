@@ -1,6 +1,6 @@
 ---
 - name: check iptables version
-  command: iptables --version
+  ansible.builtin.command: iptables --version
   register: iptables_version
   changed_when: false
   ignore_errors: true

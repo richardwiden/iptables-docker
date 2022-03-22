@@ -4,14 +4,14 @@
   ansible.builtin.service:
     name: "{{ item }}"
     state: started
-    enabled: yes
+    enabled: true
   with_items: "{{ firewall_services }}"
-  ignore_errors: yes
+  failed_when: false
 
 - name: disable iptables-docker
   ansible.builtin.service:
     name: iptables-docker
-    enabled: no
+    enabled: false
     state: stopped
 
 - name: remove iptables-docker.sh
@@ -31,4 +31,4 @@
 
 - name: reload systemd
   ansible.builtin.systemd:
-    daemon_reload: yes
+    daemon_reload: true
