@@ -1,6 +1,9 @@
 ---
 name: GitHub Action
 
+permissions:
+  contents: write
+
 on: [push, pull_request]
 
 jobs:
@@ -14,8 +17,7 @@ jobs:
       - name: Release
         if: github.ref == 'refs/heads/main'
         uses: elgohr/Github-Release-Action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+
 
 
 
