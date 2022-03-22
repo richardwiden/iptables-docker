@@ -1,5 +1,5 @@
 ---
-name: GitHub Action
+name: Ansible Lint
 
 permissions:
   contents: write
