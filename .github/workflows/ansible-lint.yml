@@ -16,7 +16,7 @@ jobs:
         uses: ansible-community/ansible-lint-action@v6.0.1
       - name: Release
         if: github.ref == 'refs/heads/main'
-        uses: elgohr/Github-Release-Action@master
+        uses: softprops/action-gh-release@v1
 
 
 
